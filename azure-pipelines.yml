@@ -20,16 +20,17 @@ steps:
     npm run build-prod
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: $(System.DefaultWorkingDirectory)/dist/testApp' 
-    includeRootFolder: true 
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 # Publish build artifacts
 # Publish build artifacts to Azure Pipelines or a Windows file share
+
 - task: PublishBuildArtifacts@1
   inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'drop' 
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
     publishLocation: 'Container'
   displayName: 'npm install and build'
