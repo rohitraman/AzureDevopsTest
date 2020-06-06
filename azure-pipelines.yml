@@ -22,7 +22,7 @@ steps:
   inputs:
     rootFolderOrFile: $(System.DefaultWorkingDirectory)/dist/testApp' 
     includeRootFolder: true 
-    archiveType: 'zip' # Options: zip, 7z, tar, wim
+    archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
     replaceExistingArchive: true
 # Publish build artifacts
